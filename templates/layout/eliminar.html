@@ -1,0 +1,9 @@
+{% extends "layout/base.html" %}
+
+{% block 'contenido' %}
+  <h3>{{mensaje}}</h3>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Eliminar</button>
+  </form>
+{% endblock  %}

@@ -1,0 +1,13 @@
+{% extends "layout/base.html" %}
+
+{% block 'contenido' %}
+  <p>nombre del estudiante: 
+    {{solicitud.estudiante.usuario.first_name}}
+    {{solicitud.estudiante.usuario.last_name}}
+  </p>
+  <p>tipo: {{solicitud.tipo}}</p>
+  <p>estado: {{solicitud.estado}}</p>
+  <p>fecha: {{solicitud.fecha}}</p>
+  <p>motivo: {{solicitud.motivo}}</p>
+  <a href="{% url 'modificar_estado_solicitud' solicitud.pk %}">Modificar Estado de la Solicitud</a>
+{% endblock %}

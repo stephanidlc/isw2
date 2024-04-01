@@ -1,0 +1,13 @@
+{% extends "layout/base_secretario.html" %}
+{% load humanize %}
+{% block 'contenido' %}
+  <p>{{reporte.fecha.year}}  - {{reporte.fecha|date:"F"|capfirst}}</p>
+  <p>bajas: {{reporte.bajas}}</p>
+  <p>continuidad: {{reporte.continuidad}}</p>
+  <p>licencias: {{reporte.licencias}}</p>
+  <p>traslados: {{reporte.traslados}}</p>
+  <p>bajas_aprobadas: {{reporte.bajas_aprobadas}}</p>
+  <p>continuidad_aprobados: {{reporte.continuidad_aprobados}}</p>
+  <p>licencias_aprobadas: {{reporte.licencias_aprobadas}}</p>
+  <p>traslados_aprobados: {{reporte.traslados_aprobados}}</p>
+{% endblock %}

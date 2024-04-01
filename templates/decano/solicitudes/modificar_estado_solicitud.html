@@ -1,0 +1,16 @@
+{% extends "layout/base.html" %}
+
+{% block 'contenido' %}
+  <p>nombre del estudiante: 
+    {{solicitud.estudiante.usuario.first_name}}
+    {{solicitud.estudiante.usuario.last_name}}
+  </p>
+  <p>tipo: {{solicitud.tipo}}</p>
+  <p>fecha: {{solicitud.fecha}}</p>
+  <p>motivo: {{solicitud.motivo}}</p>
+  <form method = 'post'>
+    {% csrf_token %}
+    {{form}}
+    <button type="submit">Modificar</button>
+  </form>
+{% endblock %}

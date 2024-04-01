@@ -1,0 +1,33 @@
+{% extends "layout/base_secretario.html" %}
+{% load static %}
+
+{% block 'sub-estilos' %}
+<link rel="stylesheet" href="{% static 'css/secretario/lista.css' %}">
+{% endblock %}
+
+{% block 'contenido' %}
+  <div class="fixed-bottom d-flex p-3 justify-content-center bg-white border shadow">
+    <a href="{% url 'crear_estudiante' %}" class="btn btn-secretario">Nuevo Estudiante</a>
+  </div>
+  <div class='text-center mt-3 user-select-none'>
+    <h1>Estudiantes</h1>
+  </div>
+  <hr>
+  <div class="container">
+    <div class='lista'>
+      {% for estudiante in object_list %}
+      <div class="lista-item">
+        <a class="lista-item-link" href="{% url 'visualizar_estudiante' estudiante.pk %}"
+        style="font-size: 20px;">
+        <b>Brigada {{estudiante.grupo}}:</b> 
+        {{estudiante.usuario.first_name}}
+        {{estudiante.usuario.last_name}}
+      </a>
+      <a href="{% url 'modificar_estudiante' estudiante.pk %}" class="lista-item-btn btn-modificar">M</a>
+      <a href="{% url 'eliminar_estudiante' estudiante.pk %}" class="lista-item-btn btn-eliminar">E</a>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="mt-5 p-4"></div>
+  </div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "layout/base.html" %}
+
+{% block 'contenido' %}
+  Notificaciones
+  <ul>
+    {% for notificacion in object_list %}
+      <li>
+        notifiacion: {{notificacion.fecha_notificacion}}
+        <br>
+        estado: {{notificacion.visto}}
+        <br>
+        <a href="{% url 'visualizar_notificacion_estudiante' notificacion.pk %}">Ver</a>
+        <a href="{% url 'eliminar_notificacion_estudiante' notificacion.pk %}">Eliminar</a>
+        <hr>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

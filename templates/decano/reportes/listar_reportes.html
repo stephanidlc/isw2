@@ -1,0 +1,12 @@
+{% extends "layout/base.html" %}
+{% load humanize %}
+{% block 'contenido' %}
+  <ul>
+    {% for reporte in object_list %}
+      <li>
+        {{reporte.fecha.year}} - {{reporte.fecha|date:'F'|capfirst}}
+        <a href="{% url 'visualizar_reporte_decano' reporte.pk %}">Ver</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "layout/base_secretario.html" %}
+
+{% block 'contenido' %}
+<p>{{estudiante.usuario.first_name}}</p>
+<p>{{estudiante.usuario.last_name}}</p>
+<p>{{estudiante.usuario.username}}</p>
+<p>{{estudiante.usuario.password}}</p>
+<p>{{estudiante.anno}}</p>
+<p>{{estudiante.grupo}}</p>
+{% endblock %}

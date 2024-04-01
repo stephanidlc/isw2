@@ -1,0 +1,32 @@
+{% extends "layout/base_secretario.html" %}
+{% load static %}
+
+{% block 'sub-estilos' %}
+<link rel="stylesheet" href="{% static 'css/secretario/lista simple.css' %}">
+{% endblock %}
+
+{% block 'contenido' %}
+<div class='text-center mt-3 user-select-none'>
+  <h1>Solicitudes</h1>
+</div>
+<hr>
+<div class="container">
+  <div class='lista'>
+    {% for solicitud in object_list %}
+    <a class="lista-item-link" href="{% url 'visualizar_reporte' solicitud.pk %}" style="font-size: 20px;">
+      <div class="row">
+        <div class="col-sm-9">
+          Solicitud de {{solicitud.tipo}}:
+          {{solicitud.estudiante.usuario.first_name}}
+          {{solicitud.estudiante.usuario.last_name}}
+        </div>
+        <div class="col-sm-3 text-sm-end">
+          {{solicitud.fecha}}
+        </div>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+  <div class="mt-5 p-4"></div>
+</div>
+{% endblock %}

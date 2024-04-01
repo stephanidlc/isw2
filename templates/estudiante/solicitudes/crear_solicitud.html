@@ -1,0 +1,9 @@
+{% extends "layout/base.html" %}
+
+{% block 'contenido' %}
+  <form method = 'post'>
+    {% csrf_token %}
+    {{form}}
+    <button type="submit">Crear Solicitud</button>
+  </form>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "layout/base.html" %}
+
+{% block 'contenido' %}
+  <a href="{% url 'crear_solicitud' %}">Nueva Solicitud</a>
+  <ul>
+    {% for solicitud in object_list %}
+      <li>
+        {{solicitud.tipo}} {{solicitud.fecha}}
+        <a href="{% url 'visualizar_solicitud' solicitud.pk %}">Ver</a>
+        <a href="{% url 'modificar_solicitud' solicitud.pk %}">Modificar</a>
+        <a href="{% url 'eliminar_solicitud' solicitud.pk %}">Eliminar</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

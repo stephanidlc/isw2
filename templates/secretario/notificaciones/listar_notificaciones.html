@@ -1,0 +1,270 @@
+{% extends "layout/base_secretario.html" %}
+{% load static %}
+
+{% block 'sub-estilos' %}
+<link rel="stylesheet" href="{% static 'css/secretario/lista notificaciones.css' %}">
+{% endblock %}
+
+{% block 'contenido' %}
+  <div class='text-center mt-3 user-select-none'>
+    <h1>Notificaciones</h1>
+  </div>
+  <hr>
+  <div class="container">
+    <div class='lista'>
+      {% for notificacion in object_list %}
+      <div class="lista-item nueva">
+        <a class="lista-item-link fw-bold" href="{% url 'visualizar_notificacion_secretario' notificacion.pk %}"
+        style="font-size: 20px;">
+        Una Solicitud de 
+        {{notificacion.estudiante.usuario.first_name}}
+        {{notificacion.estudiante.usuario.last_name}}
+        ha modificado su estado.
+      </a>
+      <a href="{% url 'eliminar_notificacion_secretario' notificacion.pk %}" class="lista-item-btn btn-eliminar">E</a>
+      </div>
+      <div class="lista-item">
+        <a class="lista-item-link fw-bold" href="{% url 'visualizar_notificacion_secretario' notificacion.pk %}"
+        style="font-size: 20px;">
+        Una Solicitud de 
+        {{notificacion.estudiante.usuario.first_name}}
+        {{notificacion.estudiante.usuario.last_name}}
+        ha modificado su estado.
+      </a>
+      <a href="{% url 'eliminar_notificacion_secretario' notificacion.pk %}" class="lista-item-btn btn-eliminar">E</a>
+      </div>
+      <div class="lista-item">
+        <a class="lista-item-link fw-bold" href="{% url 'visualizar_notificacion_secretario' notificacion.pk %}"
+        style="font-size: 20px;">
+        Una Solicitud de 
+        {{notificacion.estudiante.usuario.first_name}}
+        {{notificacion.estudiante.usuario.last_name}}
+        ha modificado su estado.
+      </a>
+      <a href="{% url 'eliminar_notificacion_secretario' notificacion.pk %}" class="lista-item-btn btn-eliminar">E</a>
+      </div>
+      <div class="lista-item">
+        <a class="lista-item-link fw-bold" href="{% url 'visualizar_notificacion_secretario' notificacion.pk %}"
+        style="font-size: 20px;">
+        Una Solicitud de 
+        {{notificacion.estudiante.usuario.first_name}}
+        {{notificacion.estudiante.usuario.last_name}}
+        ha modificado su estado.
+      </a>
+      <a href="{% url 'eliminar_notificacion_secretario' notificacion.pk %}" class="lista-item-btn btn-eliminar">E</a>
+      </div>
+      <div class="lista-item">
+        <a class="lista-item-link fw-bold" href="{% url 'visualizar_notificacion_secretario' notificacion.pk %}"
+        style="font-size: 20px;">
+        Una Solicitud de 
+        {{notificacion.estudiante.usuario.first_name}}
+        {{notificacion.estudiante.usuario.last_name}}
+        ha modificado su estado.
+      </a>
+      <a href="{% url 'eliminar_notificacion_secretario' notificacion.pk %}" class="lista-item-btn btn-eliminar">E</a>
+      </div>
+      <div class="lista-item">
+        <a class="lista-item-link fw-bold" href="{% url 'visualizar_notificacion_secretario' notificacion.pk %}"
+        style="font-size: 20px;">
+        Una Solicitud de 
+        {{notificacion.estudiante.usuario.first_name}}
+        {{notificacion.estudiante.usuario.last_name}}
+        ha modificado su estado.
+      </a>
+      <a href="{% url 'eliminar_notificacion_secretario' notificacion.pk %}" class="lista-item-btn btn-eliminar">E</a>
+      </div>
+      <div class="lista-item">
+        <a class="lista-item-link fw-bold" href="{% url 'visualizar_notificacion_secretario' notificacion.pk %}"
+        style="font-size: 20px;">
+        Una Solicitud de 
+        {{notificacion.estudiante.usuario.first_name}}
+        {{notificacion.estudiante.usuario.last_name}}
+        ha modificado su estado.
+      </a>
+      <a href="{% url 'eliminar_notificacion_secretario' notificacion.pk %}" class="lista-item-btn btn-eliminar">E</a>
+      </div>
+      <div class="lista-item">
+        <a class="lista-item-link fw-bold" href="{% url 'visualizar_notificacion_secretario' notificacion.pk %}"
+        style="font-size: 20px;">
+        Una Solicitud de 
+        {{notificacion.estudiante.usuario.first_name}}
+        {{notificacion.estudiante.usuario.last_name}}
+        ha modificado su estado.
+      </a>
+      <a href="{% url 'eliminar_notificacion_secretario' notificacion.pk %}" class="lista-item-btn btn-eliminar">E</a>
+      </div>
+      <div class="lista-item">
+        <a class="lista-item-link fw-bold" href="{% url 'visualizar_notificacion_secretario' notificacion.pk %}"
+        style="font-size: 20px;">
+        Una Solicitud de 
+        {{notificacion.estudiante.usuario.first_name}}
+        {{notificacion.estudiante.usuario.last_name}}
+        ha modificado su estado.
+      </a>
+      <a href="{% url 'eliminar_notificacion_secretario' notificacion.pk %}" class="lista-item-btn btn-eliminar">E</a>
+      </div>
+      <div class="lista-item">
+        <a class="lista-item-link fw-bold" href="{% url 'visualizar_notificacion_secretario' notificacion.pk %}"
+        style="font-size: 20px;">
+        Una Solicitud de 
+        {{notificacion.estudiante.usuario.first_name}}
+        {{notificacion.estudiante.usuario.last_name}}
+        ha modificado su estado.
+      </a>
+      <a href="{% url 'eliminar_notificacion_secretario' notificacion.pk %}" class="lista-item-btn btn-eliminar">E</a>
+      </div>
+      <div class="lista-item">
+        <a class="lista-item-link fw-bold" href="{% url 'visualizar_notificacion_secretario' notificacion.pk %}"
+        style="font-size: 20px;">
+        Una Solicitud de 
+        {{notificacion.estudiante.usuario.first_name}}
+        {{notificacion.estudiante.usuario.last_name}}
+        ha modificado su estado.
+      </a>
+      <a href="{% url 'eliminar_notificacion_secretario' notificacion.pk %}" class="lista-item-btn btn-eliminar">E</a>
+      </div>
+      <div class="lista-item">
+        <a class="lista-item-link fw-bold" href="{% url 'visualizar_notificacion_secretario' notificacion.pk %}"
+        style="font-size: 20px;">
+        Una Solicitud de 
+        {{notificacion.estudiante.usuario.first_name}}
+        {{notificacion.estudiante.usuario.last_name}}
+        ha modificado su estado.
+      </a>
+      <a href="{% url 'eliminar_notificacion_secretario' notificacion.pk %}" class="lista-item-btn btn-eliminar">E</a>
+      </div>
+      <div class="lista-item">
+        <a class="lista-item-link fw-bold" href="{% url 'visualizar_notificacion_secretario' notificacion.pk %}"
+        style="font-size: 20px;">
+        Una Solicitud de 
+        {{notificacion.estudiante.usuario.first_name}}
+        {{notificacion.estudiante.usuario.last_name}}
+        ha modificado su estado.
+      </a>
+      <a href="{% url 'eliminar_notificacion_secretario' notificacion.pk %}" class="lista-item-btn btn-eliminar">E</a>
+      </div>
+      <div class="lista-item">
+        <a class="lista-item-link fw-bold" href="{% url 'visualizar_notificacion_secretario' notificacion.pk %}"
+        style="font-size: 20px;">
+        Una Solicitud de 
+        {{notificacion.estudiante.usuario.first_name}}
+        {{notificacion.estudiante.usuario.last_name}}
+        ha modificado su estado.
+      </a>
+      <a href="{% url 'eliminar_notificacion_secretario' notificacion.pk %}" class="lista-item-btn btn-eliminar">E</a>
+      </div>
+      <div class="lista-item">
+        <a class="lista-item-link fw-bold" href="{% url 'visualizar_notificacion_secretario' notificacion.pk %}"
+        style="font-size: 20px;">
+        Una Solicitud de 
+        {{notificacion.estudiante.usuario.first_name}}
+        {{notificacion.estudiante.usuario.last_name}}
+        ha modificado su estado.
+      </a>
+      <a href="{% url 'eliminar_notificacion_secretario' notificacion.pk %}" class="lista-item-btn btn-eliminar">E</a>
+      </div>
+      <div class="lista-item">
+        <a class="lista-item-link fw-bold" href="{% url 'visualizar_notificacion_secretario' notificacion.pk %}"
+        style="font-size: 20px;">
+        Una Solicitud de 
+        {{notificacion.estudiante.usuario.first_name}}
+        {{notificacion.estudiante.usuario.last_name}}
+        ha modificado su estado.
+      </a>
+      <a href="{% url 'eliminar_notificacion_secretario' notificacion.pk %}" class="lista-item-btn btn-eliminar">E</a>
+      </div>
+      <div class="lista-item">
+        <a class="lista-item-link fw-bold" href="{% url 'visualizar_notificacion_secretario' notificacion.pk %}"
+        style="font-size: 20px;">
+        Una Solicitud de 
+        {{notificacion.estudiante.usuario.first_name}}
+        {{notificacion.estudiante.usuario.last_name}}
+        ha modificado su estado.
+      </a>
+      <a href="{% url 'eliminar_notificacion_secretario' notificacion.pk %}" class="lista-item-btn btn-eliminar">E</a>
+      </div>
+      <div class="lista-item">
+        <a class="lista-item-link fw-bold" href="{% url 'visualizar_notificacion_secretario' notificacion.pk %}"
+        style="font-size: 20px;">
+        Una Solicitud de 
+        {{notificacion.estudiante.usuario.first_name}}
+        {{notificacion.estudiante.usuario.last_name}}
+        ha modificado su estado.
+      </a>
+      <a href="{% url 'eliminar_notificacion_secretario' notificacion.pk %}" class="lista-item-btn btn-eliminar">E</a>
+      </div>
+      <div class="lista-item">
+        <a class="lista-item-link fw-bold" href="{% url 'visualizar_notificacion_secretario' notificacion.pk %}"
+        style="font-size: 20px;">
+        Una Solicitud de 
+        {{notificacion.estudiante.usuario.first_name}}
+        {{notificacion.estudiante.usuario.last_name}}
+        ha modificado su estado.
+      </a>
+      <a href="{% url 'eliminar_notificacion_secretario' notificacion.pk %}" class="lista-item-btn btn-eliminar">E</a>
+      </div>
+      <div class="lista-item">
+        <a class="lista-item-link fw-bold" href="{% url 'visualizar_notificacion_secretario' notificacion.pk %}"
+        style="font-size: 20px;">
+        Una Solicitud de 
+        {{notificacion.estudiante.usuario.first_name}}
+        {{notificacion.estudiante.usuario.last_name}}
+        ha modificado su estado.
+      </a>
+      <a href="{% url 'eliminar_notificacion_secretario' notificacion.pk %}" class="lista-item-btn btn-eliminar">E</a>
+      </div>
+      <div class="lista-item">
+        <a class="lista-item-link fw-bold" href="{% url 'visualizar_notificacion_secretario' notificacion.pk %}"
+        style="font-size: 20px;">
+        Una Solicitud de 
+        {{notificacion.estudiante.usuario.first_name}}
+        {{notificacion.estudiante.usuario.last_name}}
+        ha modificado su estado.
+      </a>
+      <a href="{% url 'eliminar_notificacion_secretario' notificacion.pk %}" class="lista-item-btn btn-eliminar">E</a>
+      </div>
+      <div class="lista-item">
+        <a class="lista-item-link fw-bold" href="{% url 'visualizar_notificacion_secretario' notificacion.pk %}"
+        style="font-size: 20px;">
+        Una Solicitud de 
+        {{notificacion.estudiante.usuario.first_name}}
+        {{notificacion.estudiante.usuario.last_name}}
+        ha modificado su estado.
+      </a>
+      <a href="{% url 'eliminar_notificacion_secretario' notificacion.pk %}" class="lista-item-btn btn-eliminar">E</a>
+      </div>
+      <div class="lista-item">
+        <a class="lista-item-link fw-bold" href="{% url 'visualizar_notificacion_secretario' notificacion.pk %}"
+        style="font-size: 20px;">
+        Una Solicitud de 
+        {{notificacion.estudiante.usuario.first_name}}
+        {{notificacion.estudiante.usuario.last_name}}
+        ha modificado su estado.
+      </a>
+      <a href="{% url 'eliminar_notificacion_secretario' notificacion.pk %}" class="lista-item-btn btn-eliminar">E</a>
+      </div>
+      <div class="lista-item">
+        <a class="lista-item-link fw-bold" href="{% url 'visualizar_notificacion_secretario' notificacion.pk %}"
+        style="font-size: 20px;">
+        Una Solicitud de 
+        {{notificacion.estudiante.usuario.first_name}}
+        {{notificacion.estudiante.usuario.last_name}}
+        ha modificado su estado.
+      </a>
+      <a href="{% url 'eliminar_notificacion_secretario' notificacion.pk %}" class="lista-item-btn btn-eliminar">E</a>
+      </div>
+      <div class="lista-item">
+        <a class="lista-item-link fw-bold" href="{% url 'visualizar_notificacion_secretario' notificacion.pk %}"
+        style="font-size: 20px;">
+        Una Solicitud de 
+        {{notificacion.estudiante.usuario.first_name}}
+        {{notificacion.estudiante.usuario.last_name}}
+        ha modificado su estado.
+      </a>
+      <a href="{% url 'eliminar_notificacion_secretario' notificacion.pk %}" class="lista-item-btn btn-eliminar">E</a>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="mt-5 p-4"></div>
+  </div>
+{% endblock %}

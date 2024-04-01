@@ -1,0 +1,17 @@
+{% extends "layout/base_secretario.html" %}
+
+{% block 'contenido' %}
+  <p>{% now 'F' %} - {% now 'Y' %}</p>
+  <p>bajas: {{bajas}}</p>
+  <p>continuidad: {{continuidad}}</p>
+  <p>licencias: {{licencias}}</p>
+  <p>traslados: {{traslados}}</p>
+  <p>bajas_aprobadas: {{bajas_aprobadas}}</p>
+  <p>continuidad_aprobados: {{continuidad_aprobados}}</p>
+  <p>licencias_aprobadas: {{licencias_aprobadas}}</p>
+  <p>traslados_aprobados: {{traslados_aprobados}}</p>
+  <form method='post'>
+    {% csrf_token %}
+    <button type="submit">Emitir</button>
+  </form>
+{% endblock %}

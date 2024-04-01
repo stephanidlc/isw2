@@ -1,0 +1,15 @@
+{% extends "layout/base.html" %}
+
+{% block 'contenido' %}
+  <ul>
+    {% for solicitud in object_list %}
+      <li>
+        {{solicitud.estudiante.usuario.first_name}} 
+        {{solicitud.estudiante.usuario.last_name}} 
+        {{solicitud.tipo}} 
+        {{solicitud.fecha}}
+        <a href="{% url 'visualizar_solicitud_decano' solicitud.pk %}">Ver</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

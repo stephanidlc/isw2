@@ -1,0 +1,14 @@
+{% extends "layout/base_secretario.html" %}
+
+{% block 'contenido' %}
+{% if error %}
+{{error}}
+{% endif %}
+<form method="post">
+{% csrf_token %}
+{{form}}
+<button type="submit">Crear</button>
+</form>
+{% endblock %}
+
+
