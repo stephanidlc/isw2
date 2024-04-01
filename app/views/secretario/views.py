@@ -1,3 +1,4 @@
+from django.db.models.query import QuerySet
 from django.http import HttpRequest
 from django.views.generic import ListView, DetailView, DeleteView, View
 from app.models import Estudiante, User, Reporte, Solicitud, NotificacionSolicitudSecretario
@@ -40,14 +41,14 @@ class CrearEstudiante(View):
         return redirect('listar_estudiantes')
       except:
         ctx = {
-          'operacion': 'crear',
+          'crear' : 1,
           'form':form,
           'error':'Ya existe un usuario con el nombre de usuario insertado.',
           }
         return render(request, 'secretario/estudiantes/crear_estudiante.html', ctx)
   
   def get(self, request, *args, **kwargs):
-    return render(request, 'secretario/estudiantes/crear_estudiante.html', {'operacion': 'crear','form':EstudianteForm()})
+    return render(request, 'secretario/estudiantes/crear_estudiante.html', {'crear' : 1,'form':EstudianteForm()})
   
 
 class ModificarEstudiante(View):
@@ -68,7 +69,6 @@ class ModificarEstudiante(View):
         return redirect('listar_estudiantes')
       except:
         ctx = {
-          'operacion': 'modificar',
           'form':form,
           'error':'Ya existe un usuario con el nombre de usuario insertado.',
           }
@@ -84,7 +84,7 @@ class ModificarEstudiante(View):
       'grupo' : estudiante.grupo,
       'anno' : estudiante.anno
     }) 
-    return render(request, 'secretario/estudiantes/crear_estudiante.html', {'operacion': 'crear', 'form':form})
+    return render(request, 'secretario/estudiantes/crear_estudiante.html', {'form':form})
   
 
 class EliminarEstudiante(DeleteView):
@@ -180,6 +180,9 @@ class ListarNotificaciones(ListView):
   rol = 'secretario'
   model = NotificacionSolicitudSecretario
   template_name = 'secretario/notificaciones/listar_notificaciones.html'
+  
+  def get_queryset(self):
+    return NotificacionSolicitudSecretario.objects.all().order_by('visto')
 
 class VisualizarNotificacion(DetailView):
   rol = 'secretario'

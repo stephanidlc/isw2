@@ -1,13 +1,53 @@
-{% extends "layout/base.html" %}
+{% extends "layout/base_decano.html" %}
+{% load static %}
+
+{% block 'sub-estilos' %}
+<link rel="stylesheet" href="{% static 'css/botones.css' %}">
+{% endblock %}
+
+{% block 'titulo' %}Visualizar Solicitud{% endblock %}
 
 {% block 'contenido' %}
-  <p>nombre del estudiante: 
-    {{solicitud.estudiante.usuario.first_name}}
-    {{solicitud.estudiante.usuario.last_name}}
-  </p>
-  <p>tipo: {{solicitud.tipo}}</p>
-  <p>estado: {{solicitud.estado}}</p>
-  <p>fecha: {{solicitud.fecha}}</p>
-  <p>motivo: {{solicitud.motivo}}</p>
-  <a href="{% url 'modificar_estado_solicitud' solicitud.pk %}">Modificar Estado de la Solicitud</a>
+<div class="text-center mt-3">
+  <h1>Visualizar Solicitud</h1>
+</div>
+<hr>
+<div class="container bg-white border rounded p-4">
+  <div class="row">
+    <div class="col-sm-4">
+      <span class='fw-bold'>Estudiante:</span>
+      {{solicitud.estudiante.usuario.first_name}}
+      {{solicitud.estudiante.usuario.last_name}}
+    </div>
+    <div class="col-sm-4 text-sm-center">
+      <span class='fw-bold'>Grupo:</span>
+      {{solicitud.estudiante.grupo}}
+    </div>
+    <div class="col-sm-4 text-sm-end">
+      <span class='fw-bold'>Año:</span>
+      {{solicitud.estudiante.anno}}
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-sm-4">
+      <span class='fw-bold'>Tipo de Solicitud:</span> {{solicitud.tipo}}
+    </div>
+    <div class="col-sm-4 text-sm-center">
+      <span class='fw-bold'>Estado:</span> {{solicitud.estado}}
+    </div>
+    <div class="col-sm-4 text-sm-end">
+      <span class='fw-bold'>Fecha:</span> {{solicitud.fecha}}
+    </div>
+  </div>
+  <hr>
+  <div class='mt'>
+    <span class='fw-bold'>Motivo:</span>
+    <p>{{solicitud.motivo}}</p>
+  </div>
+</div>
+<div class="mt-5 p-4"></div>
+<div class="fixed-bottom d-flex p-3 justify-content-around bg-white border shadow">
+  <a href="{% url 'modificar_estado_solicitud' solicitud.pk %}" class="btn btn-modificar">Modificar Estado de la Solicitud</a>
+</div>
 {% endblock %}

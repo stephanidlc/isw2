@@ -1,0 +1,20 @@
+{% extends "layout/base.html" %}
+{% load static %}
+
+{% block 'fav-icon' %}
+{% comment %} <link rel="icon" type="image/png" href="{% static 'icono_estudiante.png' %}" /> {% endcomment %}
+{% endblock  %}
+
+{% block 'estilos' %}
+  <link rel="stylesheet" href="{% static 'css/decano/decano.css' %}">
+  {% block 'sub-estilos' %}{% endblock  %}
+{% endblock  %}
+
+{% block 'nav_class' %}
+  custom-nav
+{% endblock %}
+
+{% block 'nav_links' %}
+  <a class="nav-link" aria-current="page" href="{% url 'listar_solicitudes_decano' %}">Solicitudes</a>
+  <a class="nav-link {% block 'link-clases' %}{% endblock %}" aria-current="page" href="{% url 'listar_reportes_decano' %}">Reportes</a>
+{% endblock  %}

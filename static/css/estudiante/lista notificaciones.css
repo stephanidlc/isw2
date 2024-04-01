@@ -1,10 +1,24 @@
 :root {
-  --color-bg: rgb(110, 87, 203);
-  --color-bg-dark: rgb(90, 73, 158);
-  --color-bg-darker: rgb(43, 29, 97);
-  --color-outline: rgba(110, 87, 203, 0.545);
+  --color-bg: rgb(87, 114, 203);
+  --color-bg-dark: rgb(73, 111, 158);
+  --color-bg-darker: rgb(29, 71, 97);
+  --color-outline: rgba(87, 122, 203, 0.545);
   --border-color-gray: #e3e3e3;
-  --down-transparent: #38295ef6;
+  --down-transparent: #293f5ef6;
+}
+
+.nueva::before {
+  content: '+Nueva';
+  box-shadow: 0 0 5px #3f30ae4e;
+  color: #000000;
+  font-size: 12px;
+  position: fixed;
+  top: -7px;
+  left: -20px;
+  padding: 5px;
+  border-radius: 10px;
+  font-weight: 600;
+  background-color: rgb(253, 242, 96);
 }
 
 .lista {
@@ -45,7 +59,7 @@
 }
 
 .lista-item-link:active {
-  background-color: #352449;
+  background-color: #243049;
   box-shadow: 0 0 8px #73737317;
   outline: 6px solid var(--color-outline);
   border: none;
@@ -77,28 +91,13 @@
   box-shadow: 0 0 8px #26262674;
 }
 
-.btn-modificar {
-  margin-left: 8px;
-  margin-right: 8px;
-}
-
-.btn-modificar:hover {
-  background: #f2cf42;
-  border: .8px solid #b49727;
+.btn-eliminar {
+  margin-left: 6px;
 }
 
 .btn-eliminar:hover {
   background: #f97878;
   border: .8px solid #a23c3c;
-}
-
-
-.btn-modificar:active {
-  background-color: #7f6b18;
-  box-shadow: 0 0 8px #73737317;
-  outline: 6px solid #f2cf4280;
-  border: none;
-  color: #ffffff;
 }
 
 .btn-eliminar:active {
@@ -122,9 +121,15 @@
 }
 
 @media screen and (max-width:720px) {
+
+  .nueva::before {
+    top: -7px;
+    left: -5px;
+  }
+
   .lista-item {
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: end;
     margin-bottom: 10px;
   }
 
@@ -132,7 +137,7 @@
     content: '';
     height: 1px;
     width: 100%;
-    background-color: rgb(65, 14, 119);
+    background-color: rgb(14, 119, 30);
     margin-top: 10px;
   }
 
@@ -142,7 +147,12 @@
 
   .lista-item-btn {
     margin: 0;
-    width: 48%;
+    width: 20%;
+  }
+
+  .lista-item-btn::after {
+    content: 'Eliminar';
+    margin-left: 2px;
   }
 
 }

@@ -1,10 +1,10 @@
 :root {
-  --color-bg: rgb(110, 87, 203);
-  --color-bg-dark: rgb(90, 73, 158);
-  --color-bg-darker: rgb(43, 29, 97);
-  --color-outline: rgba(110, 87, 203, 0.545);
+  --color-bg: rgb(203, 87, 116);
+  --color-bg-dark: rgb(158, 73, 114);
+  --color-bg-darker: rgb(97, 29, 64);
+  --color-outline: rgba(203, 87, 124, 0.545);
   --border-color-gray: #e3e3e3;
-  --down-transparent: #38295ef6;
+  --down-transparent: #5e293df6;
 }
 
 .lista {
@@ -34,7 +34,7 @@
 }
 
 .lista-item-link:active {
-  background-color: #252449;
+  background-color: #492438;
   box-shadow: 0 0 8px #73737317;
   outline: 6px solid var(--color-outline);
   border: none;

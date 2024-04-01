@@ -1,18 +1,32 @@
-{% extends "layout/base.html" %}
+{% extends "layout/base_estudiante.html" %}
+{% load static %}
+
+{% block 'sub-estilos' %}
+<link rel="stylesheet" href="{% static 'css/estudiante/lista notificaciones.css' %}">
+{% endblock %}
 
 {% block 'contenido' %}
-  Notificaciones
-  <ul>
-    {% for notificacion in object_list %}
-      <li>
-        notifiacion: {{notificacion.fecha_notificacion}}
-        <br>
-        estado: {{notificacion.visto}}
-        <br>
-        <a href="{% url 'visualizar_notificacion_estudiante' notificacion.pk %}">Ver</a>
-        <a href="{% url 'eliminar_notificacion_estudiante' notificacion.pk %}">Eliminar</a>
-        <hr>
-      </li>
-    {% endfor %}
-  </ul>
+  <div class='text-center mt-3 user-select-none'>
+    <h1>Notificaciones</h1>
+  </div>
+  <hr>
+  <div class="container">
+    <div class='lista'>
+      {% for notificacion in object_list %}
+      <div class="lista-item 
+      {% if not notificacion.visto %}
+        nueva
+      {% endif %}       
+      ">
+        <a class="lista-item-link fw-bold" href="{% url 'visualizar_notificacion_estudiante' notificacion.pk %}"
+        style="font-size: 20px;">
+        Una Solicitud de {{notificacion.tipo}}
+        ha modificado su estado.
+      </a>
+      <a href="{% url 'eliminar_notificacion_estudiante' notificacion.pk %}" class="lista-item-btn btn-eliminar">E</a>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="mt-5 p-4"></div>
+  </div>
 {% endblock %}

@@ -1,9 +1,69 @@
-{% extends "layout/base.html" %}
+{% extends "layout/base_estudiante.html" %}
 
 {% block 'contenido' %}
-  <form method = 'post'>
+<div class="text-center mt-3">
+  {% if crear %}
+  <h1>Crear Nueva Solicitud</b></h1>
+  {% else %}
+  <h1>Modificar Solicitud</b></h1>
+  {% endif %}
+</div>
+<hr>
+<div class="container">
+  {% if form.errors %}
+  {% for error in form.numero.errors %}
+  <div class="alert alert-danger d-flex align-items-center alert-dismissible" role="alert">
+    {{error}}
+    <button class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+  </div>
+  {% endfor %}
+  {% endif %}
+
+  <form method='post' id="form">
     {% csrf_token %}
-    {{form}}
-    <button type="submit">Crear Solicitud</button>
+    <label for="tipo" class="form-label">Tipo de Solicitud</label>
+    {{form.tipo}}
+    <label for="motivo" class="form-label mt-3">Motivo de la Solicitud</label>
+    {{form.motivo}}
   </form>
+  <div class="mt-5 p-4"></div>
+  <div class="fixed-bottom d-flex p-3 justify-content-around bg-white border shadow">
+    <button class="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#cancelar">Cancelar</button>
+    <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#aceptar">Aceptar</button>
+  </div>
+  <div class="modal" id="cancelar">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Descartar Cambios</h5>
+          <button data-bs-dismiss="modal" class="btn-close"></button>
+        </div>
+        <div class="modal-body">
+          <p>¿Seguro que desea descartar la solicitud actual?</p>
+        </div>
+        <div class="modal-footer d-flex justify-content-between">
+          <button data-bs-dismiss="modal" class="btn btn-danger" type="button">Cancelar</button>
+          <a href="{% url 'listar_solicitudes' %}" class="btn btn-success">Aceptar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="aceptar">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Confirmar Cambios</h5>
+          <button data-bs-dismiss="modal" class="btn-close"></button>
+        </div>
+        <div class="modal-body">
+          <p>¿Desea guardar los cambios?</p>
+        </div>
+        <div class="modal-footer d-flex justify-content-between">
+          <button data-bs-dismiss="modal" class="btn btn-danger" type="button">Cancelar</button>
+          <button data-bs-dismiss="modal" class="btn btn-success" type="submit" form="form">Aceptar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}

@@ -1,0 +1,32 @@
+:root {
+  --color-bg: rgb(87, 114, 203);
+  --color-bg-dark: rgb(73, 111, 158);
+  --color-bg-darker: rgb(29, 71, 97);
+  --color-outline: rgba(87, 122, 203, 0.545);
+  --border-color-gray: #e3e3e3;
+  --down-transparent: #293f5ef6;
+}
+
+.custom-nav {
+  background-color: var(--color-bg);
+}
+
+h1 {
+  color: var(--color-bg-darker);
+}
+
+.btn-estudiante {
+  background-color: var(--color-bg);
+  border-color: var(--color-bg-dark);
+  color: #fff;
+  transition: all 0.2s;
+}
+
+.btn-estudiante:hover {
+  background-color: var(--color-bg-dark);
+  color: #fff;
+}
+
+.down-menu {
+  background: var(--down-transparent);
+}

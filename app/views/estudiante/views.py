@@ -25,6 +25,11 @@ class CrearSolicitud(CreateView):
   template_name = 'estudiante/solicitudes/crear_solicitud.html'
   success_url = reverse_lazy('listar_solicitudes')
   
+  def get_context_data(self, **kwargs):
+    ctx = super().get_context_data(**kwargs)
+    ctx['crear'] = 1
+    return ctx
+  
   def form_valid(self, form):
      form.instance.estudiante = self.request.user.usuario.estudiante
      return super().form_valid(form)
@@ -55,7 +60,7 @@ class ListarNotificaciones(ListView):
   template_name = 'estudiante/notificaciones/listar_notificaciones.html'
   
   def get_queryset(self):
-    return NotificacionSolicitudEstudiante.objects.filter(estudiante = self.request.user.usuario.estudiante).order_by('-fecha_notificacion')
+    return NotificacionSolicitudEstudiante.objects.filter(estudiante = self.request.user.usuario.estudiante).order_by('visto')
   
 
 class VisualizarNotificacion(DetailView):

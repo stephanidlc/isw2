@@ -1,10 +1,55 @@
 {% extends "layout/base_secretario.html" %}
+{% load static %}
+
+{% block 'sub-estilos' %}
+<link rel="stylesheet" href="{% static 'css/botones.css' %}">
+{% endblock %}
+
+{% block 'titulo' %}Visualizar Estudiante{% endblock %}
 
 {% block 'contenido' %}
-<p>{{estudiante.usuario.first_name}}</p>
-<p>{{estudiante.usuario.last_name}}</p>
-<p>{{estudiante.usuario.username}}</p>
-<p>{{estudiante.usuario.password}}</p>
-<p>{{estudiante.anno}}</p>
-<p>{{estudiante.grupo}}</p>
+<div class="text-center mt-3">
+  <h1>Visualizar Datos del Estudiante</h1>
+</div>
+<hr>
+<div class="container p-4">
+  <div class="list-group">
+    <div class="list-group-item">
+      <span class='fw-bold'>Nombre:</span>
+      <span>
+        {{estudiante.usuario.first_name}}
+        {{estudiante.usuario.last_name}}
+      </span>
+    </div>
+    <div class="list-group-item">
+      <span class='fw-bold'>Nombre de Usuario:</span>
+      <span>
+        {{estudiante.usuario.username}}
+      </span>
+    </div>
+    <div class="list-group-item">
+      <span class='fw-bold'>Grupo:</span>
+      <span>
+        {{estudiante.grupo}}
+      </span>
+    </div>
+    <div class="list-group-item">
+      <span class='fw-bold'>Año Docente:</span>
+      <span>
+        {{estudiante.anno}}
+      </span>
+    </div>
+    <div class="list-group-item">
+      <span class='fw-bold'>Cantidad de Solicitudes:</span>
+      <span>
+        {{estudiante.solicitud_set.all.count}}
+      </span>
+    </div>
+  </div>
+</div>
+<div class="mt-5 p-4"></div>
+<div class="fixed-bottom d-flex p-3 justify-content-around bg-white border shadow">
+  <a href="{% url 'modificar_estudiante' estudiante.pk %}" class="btn btn-modificar">Modificar Estudiante</a>
+  <a href="{% url 'eliminar_estudiante' estudiante.pk %}" class="btn btn-eliminar">Eliminar Estudiante</a>
+</div>
 {% endblock %}

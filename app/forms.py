@@ -12,8 +12,8 @@ class SolicitudForm(forms.ModelForm):
     model = Solicitud
     fields = ['tipo', 'motivo']
     widgets = {
-      'tipo' : forms.Select(),
-      'motivo' : forms.Textarea()
+      'tipo' : forms.Select(attrs={'class':'form-select'}),
+      'motivo' : forms.Textarea(attrs={'class':'form-control', 'rows':'50'})
     }
     
 
@@ -22,14 +22,14 @@ class ModificarEstadoSolicitudForm(forms.ModelForm):
     model = Solicitud
     fields = ['estado']
     widgets = {
-      'estado': forms.Select()
+      'estado': forms.Select(attrs={'class':'form-select'})
     }
 
 
 class EstudianteForm(forms.Form):
-  nombre = forms.CharField()
-  apellidos = forms.CharField()
-  nombre_usuario = forms.CharField()
-  password = forms.CharField(widget=forms.PasswordInput())
-  grupo = forms.CharField()
-  anno = forms.IntegerField()
+  nombre = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
+  apellidos = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
+  nombre_usuario = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
+  password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control'}))
+  grupo = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
+  anno = forms.IntegerField(widget=forms.TextInput(attrs={'class':'form-control'}))

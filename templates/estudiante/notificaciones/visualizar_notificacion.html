@@ -1,8 +1,37 @@
-{% extends "layout/base.html" %}
+{% extends "layout/base_estudiante.html" %}
+{% load static %}
+
+{% block 'sub-estilos' %}
+<link rel="stylesheet" href="{% static 'css/botones.css' %}">
+{% endblock %}
+
+{% block 'titulo' %}Visualizar Notificacion{% endblock %}
 
 {% block 'contenido' %}
-  <p>tipo: {{notificacion.tipo}}</p>
-  <p>estado: {{notificacion.estado}}</p>
-  <p>fecha: {{notificacion.fecha}}</p>
-  <p>motivo: {{notificacion.motivo}}</p>
+<div class="text-center mt-3">
+  <h1>Visualizar Notificación</h1>
+</div>
+<hr>
+<div class="container bg-white border rounded p-4">
+  <div class="row">
+    <div class="col-sm-4">
+      <span class='fw-bold'>Tipo de Solicitud:</span> {{notificacion.tipo}}
+    </div>
+    <div class="col-sm-4 text-sm-center">
+      <span class='fw-bold'>Estado:</span> {{notificacion.estado}}
+    </div>
+    <div class="col-sm-4 text-sm-end">
+      <span class='fw-bold'>Fecha:</span> {{notificacion.fecha}}
+    </div>
+  </div>
+  <hr>
+  <div class='mt'>
+    <span class='fw-bold'>Motivo:</span>
+    <p>{{notificacion.motivo}}</p>
+  </div>
+</div>
+<div class="mt-5 p-4"></div>
+<div class="fixed-bottom d-flex p-3 justify-content-center bg-white border shadow">
+  <a href="{% url "eliminar_notificacion_estudiante" notificacion.pk %}" class="btn btn-eliminar">Eliminar Notificacion</a>
+</div>
 {% endblock %}

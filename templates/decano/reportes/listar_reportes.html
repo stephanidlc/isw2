@@ -1,12 +1,24 @@
-{% extends "layout/base.html" %}
-{% load humanize %}
+{% extends "layout/base_decano.html" %}
+{% load static %}
+
+{% block 'sub-estilos' %}
+<link rel="stylesheet" href="{% static 'css/decano/lista simple.css' %}">
+{% endblock %}
+
 {% block 'contenido' %}
-  <ul>
+<div class='text-center mt-3 user-select-none'>
+  <h1>Reportes</h1>
+</div>
+<hr>
+<div class="container">
+  <div class='lista'>
     {% for reporte in object_list %}
-      <li>
-        {{reporte.fecha.year}} - {{reporte.fecha|date:'F'|capfirst}}
-        <a href="{% url 'visualizar_reporte_decano' reporte.pk %}">Ver</a>
-      </li>
+    <a class="lista-item-link" href="{% url 'visualizar_reporte_decano' reporte.pk %}" style="font-size: 20px;">
+      {{reporte.fecha|date:'F'|capfirst}} de 
+      {{reporte.fecha.year}}
+    </a>
     {% endfor %}
-  </ul>
+  </div>
+  <div class="mt-5 p-4"></div>
+</div>
 {% endblock %}

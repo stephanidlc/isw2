@@ -1,14 +1,90 @@
 {% extends "layout/base_secretario.html" %}
 
 {% block 'contenido' %}
-{% if error %}
-{{error}}
-{% endif %}
-<form method="post">
-{% csrf_token %}
-{{form}}
-<button type="submit">Crear</button>
-</form>
+<div class="text-center mt-3">
+  {% if crear %}
+  <h1>Insertar Nuevo Estudiante</b></h1>
+  {% else %}
+  <h1>Modificar Datos del Estudiante</b></h1>
+  {% endif %}
+</div>
+<hr>
+<div class="container">
+  <form method='post' id="form">
+    {% csrf_token %}
+    <div class="row mb-3">
+      <div class="col-sm-4">
+        <label for="nombre" class='form-label'>Nombre:</label>
+        {{form.nombre}}
+      </div>
+      <div class="col-sm-8">
+        <label for="apellidos" class='form-label'>Apellidos:</label>
+        {{form.apellidos}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3">
+        <label for="nombre_usuario" class='form-label'>Usuario:</label>
+        {{form.nombre_usuario}}
+      </div>
+      <div class="col-sm-3">
+        <label for="password" class='form-label'>Contraseña:</label>
+        {{form.password}}
+      </div>
+      <div class="col-sm-3">
+        <label for="grupo" class='form-label'>Grupo:</label>
+        {{form.grupo}}
+      </div>
+      <div class="col-sm-3">
+        <label for="anno" class='form-label'>Año Docente:</label>
+        {{form.anno}}
+      </div>
+    </div>
+  </form>
+  {% if error %}
+  <div class="alert alert-danger d-flex align-items-center alert-dismissible mt-3" role="alert">
+    {{error}}
+    <button class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+  </div>
+  {% endif %}
+  <div class="mt-5 p-4"></div>
+  <div class="fixed-bottom d-flex p-3 justify-content-around bg-white border shadow">
+    <button class="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#cancelar">Cancelar</button>
+    <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#aceptar">Aceptar</button>
+  </div>
+  <div class="modal" id="cancelar">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Descartar Cambios</h5>
+          <button data-bs-dismiss="modal" class="btn-close"></button>
+        </div>
+        <div class="modal-body">
+          <p>¿Seguro que desea descartar los cambios actuales?</p>
+        </div>
+        <div class="modal-footer d-flex justify-content-between">
+          <button data-bs-dismiss="modal" class="btn btn-danger" type="button">Cancelar</button>
+          <a href="{% url 'listar_estudiantes' %}" class="btn btn-success">Aceptar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="aceptar">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Confirmar Cambios</h5>
+          <button data-bs-dismiss="modal" class="btn-close"></button>
+        </div>
+        <div class="modal-body">
+          <p>¿Desea guardar los cambios?</p>
+        </div>
+        <div class="modal-footer d-flex justify-content-between">
+          <button data-bs-dismiss="modal" class="btn btn-danger" type="button">Cancelar</button>
+          <button data-bs-dismiss="modal" class="btn btn-success" type="submit" form="form">Aceptar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
-
-
